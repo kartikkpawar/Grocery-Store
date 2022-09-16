@@ -4,16 +4,28 @@ const orderSchema = new mongoose.Schema(
   {
     products: [
       {
-        type: ObjectId,
-        ref: "Product",
+        product: {
+          type: ObjectId,
+          ref: "Product",
+        },
+        quantity: {
+          type: Number,
+          default: 1,
+        },
       },
     ],
-    orderTotal: {
+    order: { type: Date, default: Date() },
+    total: {
       type: Number,
       default: 0,
     },
-    paymentInfo: { type: String, enum: ["COD", "UPI", "CARD", "NA"] },
-    paymentStatus: { type: String, enum: ["PAID", "UNPAID"] },
+    paymentInfo: {
+      type: String,
+      enum: ["COD", "UPI", "CARD", "NA"],
+      default: "NA",
+    },
+    customerId: String,
+    type: { type: String, enum: ["ORDER", "CART"], default: "CART" },
   },
   { timestamps: true }
 );

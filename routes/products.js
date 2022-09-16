@@ -11,7 +11,7 @@ const {
 
 router.get("/allProducts", allProducts);
 router.post("/addProduct", isValidCategory, addProduct);
-router.patch("/updateProduct/:productId", isValidCategory, updateProduct);
+router.patch("/updateProduct/:productId", updateProduct);
 
 // Category
 

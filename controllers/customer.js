@@ -23,3 +23,12 @@ exports.createCustomer = async (req, res) => {
 
   return res.status(200).json({ msg: "User created successfully" });
 };
+
+exports.customerInfo = async (req, res) => {
+  const { customerId } = req.params;
+
+  const customer = await Customer.findById(customerId);
+  customer.orders = req.customerOrder;
+  const data = { customer, maxOrder: req.maxOrderInYear };
+  res.status(200).json(data);
+};

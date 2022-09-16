@@ -26,12 +26,14 @@ exports.addProduct = async (req, res) => {
 
 exports.updateProduct = async (req, res) => {
   const { productId } = req.params;
-
-  const productname = await Product.findOne({ name: req.body.name });
+  const { price } = req.body;
 
   const product = await Product.findById(productId);
   if (!product) {
     return res.status(404).send({ err: "Product not found" });
+  }
+  if (product.price === price) {
+    return res.status(200).json({ msg: "Product updated successfully" });
   }
 
   Product.findByIdAndUpdate(
