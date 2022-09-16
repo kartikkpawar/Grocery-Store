@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "d1e432cc-0a0c-498f-88b6-958f13828561",
+		"name": "Grocery Store",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "10641699"
+	},
+	"item": [
+		{
+			"name": "All Customers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/allCustomers",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"allCustomers"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Customer",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Kartik Pawar\",\r\n    \"email\":\"knpawar789@gmail.com\",\r\n    \"phone\":\"8668687748\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/createCustomer",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"createCustomer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/allCategories",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"allCategories"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Category",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Snacks\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/addCategory",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"addCategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "All Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/allProducts",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"allProducts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\":\"Domex\",\r\n    \"price\":400,\r\n    \"quantity\":30,\r\n    \"category\":\"Healthcare\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/addProduct",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"addProduct"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Product",
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n \r\n    \"price\":50\r\n\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/updateProduct/63245348f5f4cb6f2deeebf3",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"updateProduct",
+						"63245348f5f4cb6f2deeebf3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add to cart",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/addToCart/63244dd0d5f1d0560e1b855c/632458dfc6e2f0e77b1b8630/3",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"addToCart",
+						"63244dd0d5f1d0560e1b855c",
+						"632458dfc6e2f0e77b1b8630",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Place order",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paymentInfo\":\"COD\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{HOST}}/placeOrder/63244dd0d5f1d0560e1b855c/63249235d299fc3874db55b3",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"placeOrder",
+						"63244dd0d5f1d0560e1b855c",
+						"63249235d299fc3874db55b3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Order Single Product",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"paymentInfo\":\"UPI\"\r\n}"
+				},
+				"url": {
+					"raw": "{{HOST}}/placeSingleOrder/63244dd0d5f1d0560e1b855c/632458dfc6e2f0e77b1b8630/4",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"placeSingleOrder",
+						"63244dd0d5f1d0560e1b855c",
+						"632458dfc6e2f0e77b1b8630",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Customer Info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{HOST}}/getCustomer/63244dd0d5f1d0560e1b855c",
+					"host": [
+						"{{HOST}}"
+					],
+					"path": [
+						"getCustomer",
+						"63244dd0d5f1d0560e1b855c"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "HOST",
+			"value": "http://localhost:8080/api",
+			"type": "string"
+		}
+	]
+}

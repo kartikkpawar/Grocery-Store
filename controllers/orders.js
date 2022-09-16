@@ -58,6 +58,21 @@ exports.placeOrder = (req, res) => {
   );
 };
 
+exports.placeSingleOrder = async (req, res) => {
+  const { customerId, productId, quantity } = req.params;
+  const product = await Product.findById(productId);
+  const { paymentInfo } = req.body;
+  const order = await new Order({
+    products: { product: productId, quantity },
+    customerId,
+    paymentInfo,
+    type: "ORDER",
+    total: product.price * quantity,
+  });
+  order.save();
+  res.status(200).json({ msg: "Order placed successfully" });
+};
+
 exports.maxOrderInYear = async (req, res, next) => {
   const { customerId } = req.params;
   const date = new Date();

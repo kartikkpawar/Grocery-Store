@@ -3,11 +3,14 @@ const {
   addToCart,
   checkCart,
   placeOrder,
-  getOrderForYear,
+  placeSingleOrder,
 } = require("../controllers/orders");
 const router = express.Router();
 
-// router.get("/myOrders/:custId", allProducts);
+router.post(
+  "/placeSingleOrder/:customerId/:productId/:quantity",
+  placeSingleOrder
+);
 router.patch(
   "/addToCart/:customerId/:productId/:quantity",
   checkCart,
